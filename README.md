@@ -40,10 +40,6 @@
 | AI Coding Tools | ![Claude Code](https://img.shields.io/badge/Claude%20Code-D97757?style=flat-square&logo=claude&logoColor=white) ![Codex](https://img.shields.io/badge/Codex-000000?style=flat-square) ![Antigravity](https://img.shields.io/badge/Antigravity-4285F4?style=flat-square) |
 | Dev Tools | ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white) |
 
-## Contact
-
-- Email: one08988@tukorea.ac.kr
-
 ---
 
 ### About (English)
@@ -53,5 +49,3 @@ I research industrial image anomaly detection and study generative models.
 - **Anomaly detection:** PatchCore-style methods that store pretrained CNN features in a memory bank and score defects by nearest-neighbor distance. My current research partitions the memory bank so that nearest-neighbor search fits within a fixed GPU memory budget.
 - **Deep learning:** I read papers in the original, derive the equations myself, and check the claims with small reproduction experiments, following the line from backpropagation and pretraining to ResNet and Wide ResNet.
 - **Generative models:** autoencoders, VAEs, GANs, and diffusion models (DDPM), and how generative models can be used for anomaly detection.
-
-Contact: one08988@tukorea.ac.kr
