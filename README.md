@@ -49,3 +49,7 @@ I research industrial image anomaly detection and study generative models.
 - **Anomaly detection:** PatchCore-style methods that store pretrained CNN features in a memory bank and score defects by nearest-neighbor distance. My current research partitions the memory bank so that nearest-neighbor search fits within a fixed GPU memory budget.
 - **Deep learning:** I read papers in the original, derive the equations myself, and check the claims with small reproduction experiments, following the line from backpropagation and pretraining to ResNet and Wide ResNet.
 - **Generative models:** autoencoders, VAEs, GANs, and diffusion models (DDPM), and how generative models can be used for anomaly detection.
+
+---
+
+Contact: one08988@tukorea.ac.kr
