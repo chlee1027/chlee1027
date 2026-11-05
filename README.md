@@ -10,11 +10,13 @@
 
 **Deep Learning**
 - 깊은 신경망이 학습되게 만든 장치의 흐름: 역전파 → 사전학습(DBN, 오토인코더) → AlexNet → VGG → 배치 정규화 → ResNet → Wide ResNet
-- 논문을 원문으로 읽고 식을 직접 유도한 뒤, 작은 실험으로 주장을 확인
+- 순차 데이터에서 Transformer 로 이어진 흐름: [RNN](https://github.com/chlee1027/paper_study/blob/main/notes/CogSci90_Elman_Finding_Structure_in_Time.md) → [LSTM](https://github.com/chlee1027/paper_study/blob/main/notes/NC97_LSTM_Long_Short_Term_Memory.md) → [GRU](https://github.com/chlee1027/paper_study/blob/main/notes/EMNLP14_GRU_Learning_Phrase_Representations_using_RNN_Encoder_Decoder_for_Statistical_Machine_Translation.md) → [seq2seq](https://github.com/chlee1027/paper_study/blob/main/notes/NIPS14_Seq2Seq_Sequence_to_Sequence_Learning_with_Neural_Networks.md) → [Attention](https://github.com/chlee1027/paper_study/blob/main/notes/ICLR15_Attention_Neural_Machine_Translation_by_Jointly_Learning_to_Align_and_Translate.md) → [Transformer](https://github.com/chlee1027/paper_study/blob/main/notes/NIPS17_Transformer_Attention_Is_All_You_Need.md) → [ViT](https://github.com/chlee1027/paper_study/blob/main/notes/ICLR21_ViT_An_Image_is_Worth_16x16_Words_Transformers_for_Image_Recognition_at_Scale.md) → [BERT](https://github.com/chlee1027/paper_study/blob/main/notes/NAACL19_BERT_Pre_training_of_Deep_Bidirectional_Transformers_for_Language_Understanding.md)
+- 논문을 원문으로 읽고 식을 직접 유도한 뒤, 논문의 실험을 표와 그림마다 분석(파라미터 수 세기, 표 수치 다시 계산하기, 그림 눈금 읽기)
 
 **Generative Models**
-- 데이터 분포를 다루는 방식에 따라 이어지는 흐름: [오토인코더](https://github.com/chlee1027/paper_study/blob/main/notes/Science06_AE_Reducing_the_Dimensionality_of_Data_with_Neural_Networks.md) → [VAE](https://github.com/chlee1027/paper_study/blob/main/notes/ICLR14_VAE_Auto_Encoding_Variational_Bayes.md) → [GAN](https://github.com/chlee1027/paper_study/blob/main/notes/NIPS14_GAN_Generative_Adversarial_Nets.md) → [확산 모델(DDPM)](https://github.com/chlee1027/paper_study/blob/main/notes/NeurIPS20_DDPM_Denoising_Diffusion_Probabilistic_Models.md)
+- 데이터 분포를 다루는 방식에 따라 이어지는 흐름: [오토인코더](https://github.com/chlee1027/paper_study/blob/main/notes/Science06_AE_Reducing_the_Dimensionality_of_Data_with_Neural_Networks.md) → [VAE](https://github.com/chlee1027/paper_study/blob/main/notes/ICLR14_VAE_Auto_Encoding_Variational_Bayes.md) → [GAN](https://github.com/chlee1027/paper_study/blob/main/notes/NIPS14_GAN_Generative_Adversarial_Nets.md) → [Wasserstein GAN](https://github.com/chlee1027/paper_study/blob/main/notes/ICML17_WGAN_Wasserstein_GAN.md) → [확산 모델(DDPM)](https://github.com/chlee1027/paper_study/blob/main/notes/NeurIPS20_DDPM_Denoising_Diffusion_Probabilistic_Models.md)
   (각 이름을 누르면 직접 읽고 정리한 노트로 이동합니다)
+- 다음으로 읽을 확산 모델 논문: DDIM → Score SDE → Latent Diffusion
 - 생성 모델을 이상 탐지에 쓰는 방법(확산 모델로 정상 이미지를 재구성해 차이를 보는 방식 등)
 
 ## Projects
@@ -22,10 +24,11 @@
 | Project | Description | Stack |
 |---|---|---|
 | [Obsidian Task Organizer](https://github.com/chlee1027/Obsidian-Task-Organizer)<br>[사이트 열기](https://organizer-eta-beryl.vercel.app) | 생각나는 대로 적은 메모를 Gemini 로 정리해 Obsidian 데일리 노트로 저장하는 웹 앱. 사람별 계정, 설정과 API 키는 서버에 저장 | JavaScript, Vercel 서버 함수, Upstash Redis, Gemini API |
-| [paper_study](https://github.com/chlee1027/paper_study) | 퍼셉트론부터 DDPM 까지 논문 노트 15편과 직접 재현한 실험 5개. 노트마다 한계를 적고, 그 한계를 푼 논문을 다음에 읽는 순서로 정리 | Python, PyTorch, NumPy, Jupyter |
+| [paper_study](https://github.com/chlee1027/paper_study) | 퍼셉트론부터 ViT · BERT 까지 논문 노트 26편과 직접 돌린 실험 4개. 노트마다 한계를 적고, 그 한계를 푼 논문을 다음에 읽는 순서로 정리 | Python, PyTorch, NumPy, Jupyter |
 | AI+X 공공 웹사이트 불법광고 탐지 도구<br>(팀 공모전, 비공개) | 공공기관 웹사이트에 숨겨 심은 불법 광고(화면 밖에 둔 링크, 보이지 않는 글자, 자모를 쪼갠 글 등)를 찾는 도구. 브라우저로 페이지를 띄워 요소를 모으고, 글 판정 모델과 숨김 기법 규칙으로 찾은 뒤, 애매한 것만 LLM 에 다시 묻는다. Windows 실행 파일로 묶어 제출 | Python, Playwright, scikit-learn, Claude API, PyInstaller |
 | 졸업작품: Fitness AI 운동 추천 앱<br>(비공개) | 목표·경험·부상·보유 장비로 운동 후보를 거른 뒤, 운동 기록(완료 여부, 체감 강도, 통증)을 보상으로 삼는 밴딧(epsilon-greedy)으로 다음 운동을 고르는 앱. Gemini 로 AI 코치 대화와 운동 가이드 제공 | Python, FastAPI, PostgreSQL, React Native(Expo), Gemini API |
 | PatchCore 메모리 뱅크 검색 연구<br>(비공개) | 이상 탐지 모델 PatchCore 의 메모리 뱅크를 파티션으로 나누어, 정해진 GPU 메모리 안에서 최근접 이웃 검색 시간을 줄이는 방법 연구 | Python, PyTorch, FAISS, Google Colab |
+| beyond-mvtec<br>(비공개, 실험 전) | MVTec AD 에서 고른 이상 탐지 설정의 순위가 VisA, Real-IAD 에서도 유지되는지 재는 프로젝트. PatchCore 는 원 저자 코드를, PaDiM 과 PRO 지표는 직접 구현해 비교할 계획. 지금은 관련 논문 여섯 편의 분석 노트를 쓴 단계 | Python, PyTorch |
 
 ## Tech Stack
 
