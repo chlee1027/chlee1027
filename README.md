@@ -7,6 +7,7 @@
 **Anomaly Detection**
 - 정상 이미지만으로 학습해 결함을 찾는 방법. 특히 PatchCore 계열(사전학습 CNN 특징을 메모리 뱅크에 모아 두고, 새 이미지 조각과의 최근접 이웃 거리로 이상을 판단하는 방식)
 - 메모리 뱅크가 GPU 메모리보다 커질 때, 뱅크를 파티션으로 나누어 정해진 메모리 안에서 빠르게 최근접 이웃을 검색하는 방법
+- 정상 이미지에서 무엇을 남겨 두는가로 갈리는 흐름: 조각 특징을 저장한다 [SPADE](https://github.com/chlee1027/paper_study/blob/main/notes/arXiv20_SPADE_Sub_Image_Anomaly_Detection_with_Deep_Pyramid_Correspondences.md) → [코어셋 뽑기](https://github.com/chlee1027/paper_study/blob/main/notes/ICLR18_Coreset_Active_Learning_for_Convolutional_Neural_Networks_A_Core_Set_Approach.md) → [PatchCore](https://github.com/chlee1027/paper_study/blob/main/notes/CVPR22_PatchCore_Towards_Total_Recall_in_Industrial_Anomaly_Detection.md) · 특징을 재구성한다 [UniAD](https://github.com/chlee1027/paper_study/blob/main/notes/NeurIPS22_UniAD_A_Unified_Model_for_Multi_class_Anomaly_Detection.md) · 확산 모델로 이미지를 복원한다 [AnoDDPM](https://github.com/chlee1027/paper_study/blob/main/notes/CVPRW22_AnoDDPM_Anomaly_Detection_with_Denoising_Diffusion_Probabilistic_Models_using_Simplex_Noise.md)
 
 **Deep Learning**
 - 깊은 신경망이 학습되게 만든 장치의 흐름: 역전파 → 사전학습(DBN, 오토인코더) → AlexNet → VGG → 배치 정규화 → ResNet → Wide ResNet
@@ -23,7 +24,7 @@
 | Project | Description | Stack |
 |---|---|---|
 | [Obsidian Task Organizer](https://github.com/chlee1027/Obsidian-Task-Organizer)<br>[사이트 열기](https://organizer-eta-beryl.vercel.app) | 생각나는 대로 적은 메모를 Gemini 로 정리해 Obsidian 데일리 노트로 저장하는 웹 앱. 사람별 계정, 설정과 API 키는 서버에 저장 | JavaScript, Vercel 서버 함수, Upstash Redis, Gemini API |
-| [paper_study](https://github.com/chlee1027/paper_study) | 퍼셉트론부터 ViT · BERT, Latent Diffusion 까지 논문 노트 29편과 직접 돌린 실험 4개. 노트마다 한계를 적고, 그 한계를 푼 논문을 다음에 읽는 순서로 정리 | Python, PyTorch, NumPy, Jupyter |
+| [paper_study](https://github.com/chlee1027/paper_study) | 퍼셉트론부터 ViT · BERT, Latent Diffusion, PatchCore, U-Net · YOLO 까지 논문 노트 37편과 직접 돌린 실험 4개. 노트마다 한계를 적고, 그 한계를 푼 논문을 다음에 읽는 순서로 정리 | Python, PyTorch, NumPy, Jupyter |
 | AI+X 공공 웹사이트 불법광고 탐지 도구<br>(팀 공모전, 비공개) | 공공기관 웹사이트에 숨겨 심은 불법 광고(화면 밖에 둔 링크, 보이지 않는 글자, 자모를 쪼갠 글 등)를 찾는 도구. 브라우저로 페이지를 띄워 요소를 모으고, 글 판정 모델과 숨김 기법 규칙으로 찾은 뒤, 애매한 것만 LLM 에 다시 묻는다. Windows 실행 파일로 묶어 제출 | Python, Playwright, scikit-learn, Claude API, PyInstaller |
 | 졸업작품: Fitness AI 운동 추천 앱<br>(비공개) | 목표·경험·부상·보유 장비로 운동 후보를 거른 뒤, 운동 기록(완료 여부, 체감 강도, 통증)을 보상으로 삼는 밴딧(epsilon-greedy)으로 다음 운동을 고르는 앱. Gemini 로 AI 코치 대화와 운동 가이드 제공 | Python, FastAPI, PostgreSQL, React Native(Expo), Gemini API |
 | PatchCore 메모리 뱅크 검색 연구<br>(비공개) | 이상 탐지 모델 PatchCore 의 메모리 뱅크를 파티션으로 나누어, 정해진 GPU 메모리 안에서 최근접 이웃 검색 시간을 줄이는 방법 연구 | Python, PyTorch, FAISS, Google Colab |
