@@ -55,7 +55,7 @@
 | AI+X 공공 웹사이트 불법광고 탐지 도구<br>(팀 공모전, 비공개) | 공공기관 웹사이트에 숨겨 심은 불법 광고(화면 밖에 둔 링크, 보이지 않는 글자, 자모를 쪼갠 글 등)를 찾는 도구. 브라우저로 페이지를 띄워 요소를 모으고, 글 판정 모델과 숨김 기법 규칙으로 찾은 뒤, 애매한 것만 LLM 에 다시 묻는다. Windows 실행 파일로 묶어 제출 | Python, Playwright, scikit-learn, Claude API, PyInstaller |
 | 졸업작품: Fitness AI 운동 추천 앱<br>(비공개) | 목표·경험·부상·보유 장비로 운동 후보를 거른 뒤, 운동 기록(완료 여부, 체감 강도, 통증)을 보상으로 삼는 밴딧(epsilon-greedy)으로 다음 운동을 고르는 앱. Gemini 로 AI 코치 대화와 운동 가이드 제공 | Python, FastAPI, PostgreSQL, React Native(Expo), Gemini API |
 | PatchCore 메모리 뱅크 검색 연구<br>(비공개) | 이상 탐지 모델 PatchCore 의 메모리 뱅크를 파티션으로 나누어, 정해진 GPU 메모리 안에서 최근접 이웃 검색 시간을 줄이는 방법 연구 | Python, PyTorch, FAISS, Google Colab |
-| beyond-mvtec<br>(비공개, 진행 중) | MVTec AD 에서 고른 이상 탐지 설정의 순위가 VisA, Real-IAD 에서도 유지되는지 재는 프로젝트. PatchCore 는 원 저자 코드를 쓰고, PaDiM 과 PRO 지표는 직접 구현했다. MVTec AD 에서 원 논문 결과를 재현했고, 지금은 세 데이터셋에서 설정 순위를 비교하는 실험 단계 | Python, PyTorch |
+| [beyond-mvtec](https://github.com/chlee1027/beyond-mvtec)<br>(진행 중) | MVTec AD 에서 고른 이상 탐지 설정의 순위가 VisA, Real-IAD 에서도 유지되는지 재는 프로젝트. PatchCore 는 원 저자 코드를 쓰고, PaDiM 과 PRO 지표는 직접 구현했다. MVTec AD 에서 원 논문 결과를 재현한 뒤, 설정 10개를 세 데이터셋 x 시드 3개로 비교했다. 순위는 같은 방향이지만(Kendall 순위 상관 0.51~0.78), MVTec AD 1위 설정이 VisA 에서는 5위였다. 지금은 정상 학습 이미지를 50장 · 10장으로 줄이는 실험 단계 | Python, PyTorch, FAISS, Google Colab |
 
 ## Tech Stack
 
