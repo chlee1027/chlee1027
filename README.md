@@ -52,7 +52,7 @@
 
 | Project | Description | Stack |
 |---|---|---|
-| [Obsidian Task Organizer](https://github.com/chlee1027/Obsidian-Task-Organizer)<br>[사이트 열기](https://organizer-eta-beryl.vercel.app) | 생각나는 대로 적은 메모를 Gemini 로 정리해 Obsidian 데일리 노트로 저장하는 웹 앱. 사람별 계정, 설정과 API 키는 서버에 저장 | JavaScript, Vercel 서버 함수, Upstash Redis, Gemini API |
+| [Obsidian Task Organizer](https://github.com/chlee1027/Obsidian-Task-Organizer)<br>[사이트 열기](https://organizer-eta-beryl.vercel.app) | 생각나는 대로 적은 메모를 Gemini 또는 Claude 로 정리해 Obsidian 데일리 노트로 저장하는 웹 앱. 사람별 계정, 설정과 API 키는 암호화해 서버에 저장, push 마다 시험을 도는 CI | JavaScript, Vercel 서버 함수, Upstash Redis, Gemini API, Claude API, GitHub Actions |
 | [paper_study](https://github.com/chlee1027/paper_study) | 퍼셉트론부터 ViT · BERT, Latent Diffusion, PatchCore, U-Net · YOLO, DRAEM · EfficientAD, CLIP 까지 논문 노트 42편과 직접 돌린 실험 4개. 노트마다 한계를 적고, 그 한계를 푼 논문을 다음에 읽는 순서로 정리 | Python, PyTorch, NumPy, Jupyter |
 | [beyond-mvtec](https://github.com/chlee1027/beyond-mvtec)<br>(진행 중) | MVTec AD 에서 고른 이상 탐지 설정의 순위가 VisA, Real-IAD 에서도 유지되는지 재는 프로젝트. PatchCore 는 원 저자 코드를 쓰고, PaDiM 과 PRO 지표는 직접 구현했다. MVTec AD 에서 원 논문 결과를 재현한 뒤, 설정 10개를 세 데이터셋 x 시드 3개로 비교했다. 순위는 같은 방향이지만(Kendall 순위 상관 0.51\~0.78), MVTec AD 1위 설정이 VisA 에서는 5위였다. 정상 학습 이미지를 50장 · 10장으로 줄여도 PatchCore 두 설정의 순서는 세 데이터셋 모두 그대로였고, 10장일 때 이미지 AUROC 하락은 MVTec AD 5.6점, VisA 6.9점, Real-IAD 8.7점이었다. MVTec AD 2(8 부류)를 더하면 MVTec AD 1 · 2 · 3위가 그대로 1 · 2 · 3위였지만(Kendall 0.60), 이미지 AUROC가 63\~71로 낮고 두 부류는 50 언저리였다 | Python, PyTorch, FAISS, Google Colab |
 | AI+X 공공 웹사이트 불법광고 탐지 도구<br>(팀 공모전, 비공개) | 공공기관 웹사이트에 숨겨 심은 불법 광고(화면 밖에 둔 링크, 보이지 않는 글자, 자모를 쪼갠 글 등)를 찾는 도구. 브라우저로 페이지를 띄워 요소를 모으고, 글 판정 모델과 숨김 기법 규칙으로 찾은 뒤, 애매한 것만 LLM 에 다시 묻는다. Windows 실행 파일로 묶어 제출 | Python, Playwright, scikit-learn, Claude API, PyInstaller |
