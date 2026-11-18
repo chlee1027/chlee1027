@@ -9,7 +9,7 @@
 **Anomaly Detection**
 - 정상 이미지만으로 학습해 결함을 찾는 방법. 특히 PatchCore 계열(사전학습 CNN 특징을 메모리 뱅크에 모아 두고, 새 이미지 조각과의 최근접 이웃 거리로 이상을 판단하는 방식)
 - 메모리 뱅크가 GPU 메모리보다 커질 때, 뱅크를 파티션으로 나누어 정해진 메모리 안에서 빠르게 최근접 이웃을 검색하는 방법
-- 정상 이미지에서 무엇을 남겨 두는가로 갈리는 흐름: 조각 특징 저장(SPADE → 코어셋 → PatchCore) · 특징 재구성(UniAD) · 확산 모델로 이미지 복원(AnoDDPM) · 합성한 가짜 결함으로 판별 망을 학습(이미지에 만드는 DRAEM, 특징에 만드는 SimpleNet) · 선생 망의 특징을 학생 망이 따라 하게 배워 그 차이로 판단(Reverse Distillation → EfficientAD) · 정상 이미지 학습 없이 「정상 · 결함」 을 적은 글과 이미지를 맞대어 판단(CLIP → WinCLIP → AnomalyCLIP, 읽는 중)
+- 정상 이미지에서 무엇을 남겨 두는가로 갈리는 흐름: 조각 특징 저장(SPADE → 코어셋 → PatchCore) · 특징 재구성(UniAD) · 확산 모델로 이미지 복원(AnoDDPM) · 합성한 가짜 결함으로 판별 망을 학습(이미지에 만드는 DRAEM, 특징에 만드는 SimpleNet) · 선생 망의 특징을 학생 망이 따라 하게 배워 그 차이로 판단(Reverse Distillation → EfficientAD) · 정상 이미지 학습 없이 「정상 · 결함」 을 적은 글과 이미지를 맞대어 판단(CLIP → WinCLIP → AnomalyCLIP)
 
 <details>
 <summary>노트 보기</summary>
@@ -19,7 +19,7 @@
 - 이미지 복원: [AnoDDPM](https://github.com/chlee1027/paper_study/blob/main/notes/CVPRW22_AnoDDPM_Anomaly_Detection_with_Denoising_Diffusion_Probabilistic_Models_using_Simplex_Noise.md)
 - 가짜 결함 합성: [DRAEM](https://github.com/chlee1027/paper_study/blob/main/notes/ICCV21_DRAEM_A_Discriminatively_Trained_Reconstruction_Embedding_for_Surface_Anomaly_Detection.md) · [SimpleNet](https://github.com/chlee1027/paper_study/blob/main/notes/CVPR23_SimpleNet_A_Simple_Network_for_Image_Anomaly_Detection_and_Localization.md)
 - 선생 · 학생 증류: [Reverse Distillation](https://github.com/chlee1027/paper_study/blob/main/notes/CVPR22_RD_Anomaly_Detection_via_Reverse_Distillation_from_One_Class_Embedding.md) · [EfficientAD](https://github.com/chlee1027/paper_study/blob/main/notes/WACV24_EfficientAD_Accurate_Visual_Anomaly_Detection_at_Millisecond_Level_Latencies.md)
-- 글-이미지 제로샷: [CLIP](https://github.com/chlee1027/paper_study/blob/main/notes/ICML21_CLIP_Learning_Transferable_Visual_Models_From_Natural_Language_Supervision.md)
+- 글-이미지 제로샷: [CLIP](https://github.com/chlee1027/paper_study/blob/main/notes/ICML21_CLIP_Learning_Transferable_Visual_Models_From_Natural_Language_Supervision.md) · [WinCLIP](https://github.com/chlee1027/paper_study/blob/main/notes/CVPR23_WinCLIP_Zero_Few_Shot_Anomaly_Classification_and_Segmentation.md) · [AnomalyCLIP](https://github.com/chlee1027/paper_study/blob/main/notes/ICLR24_AnomalyCLIP_Object_Agnostic_Prompt_Learning_for_Zero_Shot_Anomaly_Detection.md)
 
 </details>
 
@@ -53,7 +53,7 @@
 | Project | Description | Stack |
 |---|---|---|
 | [Obsidian Task Organizer](https://github.com/chlee1027/Obsidian-Task-Organizer)<br>[사이트 열기](https://organizer-eta-beryl.vercel.app) | 생각나는 대로 적은 메모를 Gemini 또는 Claude 로 정리해 Obsidian 데일리 노트로 저장하는 웹 앱. 사람별 계정, 설정과 API 키는 암호화해 서버에 저장, push 마다 시험을 도는 CI | JavaScript, Vercel 서버 함수, Upstash Redis, Gemini API, Claude API, GitHub Actions |
-| [paper_study](https://github.com/chlee1027/paper_study) | 퍼셉트론부터 ViT · BERT, Latent Diffusion, PatchCore, U-Net · YOLO, DRAEM · EfficientAD, CLIP 까지 논문 노트 42편과 직접 돌린 실험 4개. 노트마다 한계를 적고, 그 한계를 푼 논문을 다음에 읽는 순서로 정리 | Python, PyTorch, NumPy, Jupyter |
+| [paper_study](https://github.com/chlee1027/paper_study) | 퍼셉트론부터 ViT · BERT, Latent Diffusion, PatchCore, U-Net · YOLO, DRAEM · EfficientAD, CLIP · WinCLIP · AnomalyCLIP 까지 논문 노트 44편과 직접 돌린 실험 4개. 노트마다 한계를 적고, 그 한계를 푼 논문을 다음에 읽는 순서로 정리 | Python, PyTorch, NumPy, Jupyter |
 | [beyond-mvtec](https://github.com/chlee1027/beyond-mvtec) | MVTec AD 에서 고른 이상 탐지 설정의 순위가 VisA, Real-IAD 에서도 유지되는지 재는 프로젝트. PatchCore 는 원 저자 코드를 쓰고, PaDiM 과 PRO 지표는 직접 구현했다. MVTec AD 에서 원 논문 결과를 재현한 뒤, 설정 10개를 세 데이터셋 x 시드 3개로 비교했다. 순위는 같은 방향이지만(Kendall 순위 상관 0.51\~0.78), MVTec AD 1위 설정이 VisA 에서는 5위였다. 정상 학습 이미지를 50장 · 10장으로 줄여도 PatchCore 두 설정의 순서는 세 데이터셋 모두 그대로였고, 10장일 때 이미지 AUROC 하락은 MVTec AD 5.6점, VisA 6.9점, Real-IAD 8.7점이었다. MVTec AD 2(8 부류)를 더하면 MVTec AD 1 · 2 · 3위가 그대로 1 · 2 · 3위였지만(Kendall 0.60), 이미지 AUROC가 63\~71로 낮고 두 부류는 50 언저리였다 | Python, PyTorch, FAISS, Google Colab |
 | [Fitness AI 운동 추천 앱](https://github.com/chlee1027/graduate_project)<br>[데모 열기](https://fitness-ai-coach-seven.vercel.app) | 오늘 컨디션(피로도, 운동할 수 있는 시간)과 부상 · 장비로 운동 후보를 거른 뒤, 운동 기록(완료 여부, 체감 강도, 통증)을 보상으로 배우는 hybrid LinUCB 로 다음 운동을 고르는 앱. 가상 사용자 시뮬레이션에서 원래 쓰던 epsilon-greedy 가 이미 해 본 운동에 묶여 무작위보다 낮은 것을 찾아 바꿨다(세션당 기대 보상 0.964 → 1.034, 무작위 0.977). Claude 로 AI 코치와 운동 가이드, push 마다 시험을 도는 CI | Python, FastAPI, PostgreSQL(Neon), React Native(Expo), Claude API, Vercel, GitHub Actions |
 | AI+X 웹사이트 불법광고 탐지 도구<br>(팀 프로젝트, 비공개) | 웹사이트에 숨겨 심은 불법 광고(화면 밖에 둔 링크, 보이지 않는 글자, 자모를 쪼갠 글 등)를 찾는 도구. 브라우저로 페이지를 띄워 요소를 모으고, 글 판정 모델과 숨김 기법 규칙으로 찾은 뒤, 애매한 것만 LLM 에 다시 묻는다. 공모전에는 Windows 실행 파일로 제출했고, 이어진 수업 프로젝트에서 이미지 광고까지 넓혔다: 합성한 학습 이미지, PaddleOCR 로 읽은 이미지 속 글과 CLIP 이미지 특징을 함께 쓰는 분류기, 점수가 애매한 이미지만 Claude 에 다시 묻는 단계, 모델이 이미지 여백 같은 지름길을 보는지 Grad-CAM 으로 점검 | Python, Playwright, scikit-learn, PaddleOCR, CLIP, Claude API, PyInstaller |
